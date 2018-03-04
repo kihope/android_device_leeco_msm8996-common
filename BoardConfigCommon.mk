@@ -42,6 +42,8 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := kryo
 
 TARGET_USES_64_BIT_BINDER := true
+ENABLE_CPUSETS := true
+ENABLE_SCHED_BOOST := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
@@ -91,7 +93,7 @@ TARGET_USES_QCOM_MM_AUDIO := true
 BOARD_USES_ALSA_AUDIO := true
 BOARD_USES_SRS_TRUEMEDIA := true
 
-USE_CUSTOM_AUDIO_POLICY := 1
+USE_CUSTOM_AUDIO_POLICY := 0
 USE_XML_AUDIO_POLICY_CONF := 1
 
 # Bionic
@@ -244,5 +246,8 @@ endif
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy
+
+# Enable real time lockscreen charging current values
+BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
 
 -include vendor/leeco/msm8996-common/BoardConfigVendor.mk
