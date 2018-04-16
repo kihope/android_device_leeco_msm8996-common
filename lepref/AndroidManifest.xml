@@ -18,7 +18,8 @@
         android:theme="@style/Theme.Settings">
         <activity
             android:name=".LePrefSettings"
-            android:label="@string/lepref_title"
+            android:label="@string/lepref_title">
+            
             <intent-filter>
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
             </intent-filter>
